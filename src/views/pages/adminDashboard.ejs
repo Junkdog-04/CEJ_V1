@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Administrador - Centro de Entrenamiento Jurídico - CEJ</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <div class="container">
+            <h1>Dashboard de Administrador</h1>
+            <h2>Gestionar Cursos</h2>
+            <form action="/admin/courses" method="post">
+                <input type="text" name="title" placeholder="Título del Curso" required>
+                <textarea name="description" placeholder="Descripción del Curso" required></textarea>
+                <input type="number" name="price" placeholder="Precio" required>
+                <input type="text" name="thumbnail" placeholder="URL de la Miniatura" required>
+                <button type="button" id="addModuleBtn">Añadir Módulo</button>
+                <div id="modulesContainer"></div>
+                <input type="submit" value="Crear Curso">
+            </form>
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script>
+        document.getElementById('addModuleBtn').addEventListener('click', function() {
+            const moduleHTML = `
+                <div class="module">
+                    <input type="text" name="modules[][title]" placeholder="Título del Módulo" required>
+                    <input type="text" name="modules[][videoId]" placeholder="ID del Video de YouTube" required>
+                    <textarea name="modules[][material]" placeholder="Material del Módulo" required></textarea>
+                </div>
+            `;
+            document.getElementById('modulesContainer').insertAdjacentHTML('beforeend', moduleHTML);
+        });
+    </script>
+</body>
+</html>

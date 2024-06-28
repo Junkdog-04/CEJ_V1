@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Centro de Entrenamiento Jurídico - CEJ</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <div class="container">
+            <h1>Bienvenido, <%= user.name %></h1>
+            <h2>Tus Cursos</h2>
+            <div class="courses-list">
+                <% courses.forEach(course => { %>
+                <div class="course-item">
+                    <h3><%= course.title %></h3>
+                    <p><%= course.description %></p>
+                    <a href="/courses/<%= course._id %>" class="btn btn-primary">Ver Curso</a>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

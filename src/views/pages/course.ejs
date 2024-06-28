@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= course.title %> - Centro de Entrenamiento Jurídico - CEJ</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <div class="container">
+            <h1><%= course.title %></h1>
+            <p><%= course.description %></p>
+            <div class="modules-list">
+                <% course.modules.forEach(module => { %>
+                <div class="module-item">
+                    <h3><%= module.title %></h3>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= module.videoId %>" frameborder="0" allowfullscreen></iframe>
+                    <p><%= module.material %></p>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

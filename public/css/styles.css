@@ -1,0 +1,694 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Preloader */
+#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.spinner {
+    position: relative;
+    text-align: center;
+}
+
+.preloader-logo {
+    width: 120px; /* Aumentar el tamaño del logo */
+    margin-bottom: 20px;
+}
+
+.double-bounce1, .double-bounce2 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #0094A8; /* Primary color */
+    opacity: 0.6;
+    position: absolute;
+    top: 60px; /* Ajusta la posición para que no se superponga con el logo */
+    left: calc(50% - 20px); /* Ajusta la posición horizontal */
+    -webkit-animation: bounce 2.0s infinite ease-in-out;
+    animation: bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+    background-color: #55881F; /* Secondary color */
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+@-webkit-keyframes bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bounce {
+    0%, 100% { 
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 50% { 
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+/* Hide preloader after page load */
+body.loaded #preloader {
+    opacity: 0;
+    visibility: hidden;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(90deg, #000000, #0f4249);
+    color: #fff;
+}
+
+header {
+    background: linear-gradient(90deg, #000000, #0f4249);
+    padding: 1rem 0;
+}
+
+nav.navbar {
+    background: transparent;
+  }
+  
+  /* change navbar-brand color */
+  .navbar a.navbar-brand {
+    color: rgb(0, 148, 168);
+  }
+  
+  /* change navbar-brand color on hover */
+  .navbar a.navbar-brand:hover {
+    color: green;
+  }
+  
+  /*  change navbar li colors, also active one but not disabled one */
+  .navbar ul.navbar-nav li.nav-item a.nav-link {
+    color: rgb(0, 148, 168);
+  }
+  
+  /* change navbar-toggler inside lines color (stroke) */
+  .navbar-light span.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 148, 168)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .navbar-light button.navbar-toggler {
+    border-color: rgb(0, 148, 168);
+  }
+  
+  .navbar-toggler:focus, .navbar-toggler:focus-visible {
+      border-color: rgb(0, 148, 168);
+  }
+  
+  .nav-item {
+      text-align: right;
+  }
+  
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-toggle svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(90deg, #000000, #0f4249);
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+/* Main Section Styles */
+.main_one {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.title_main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.9rem;
+    line-height: 3rem;
+    letter-spacing: -.16px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 5px 6px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.title_main .highlight {
+    color: #0094A8; /* Cambia este color al que desees */
+    font-weight: bold; /* Esto asegura que la palabra también esté en negrilla */
+}
+
+.subtitle_main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    color: #ccc;
+    line-height: 1.5rem;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Para dispositivos móviles */
+@media (max-width: 768px) {
+    .subtitle_main {
+        font-size: 1rem; /* Tamaño de fuente más pequeño para móviles */
+        line-height: 1.4rem;
+    }
+}
+
+/* Para dispositivos de escritorio */
+@media (min-width: 769px) {
+    .subtitle_main {
+        font-size: 1.3rem; /* Tamaño de fuente más grande para PC */
+        line-height: 1.6rem;
+    }
+}
+
+/* Search Form Styles */
+.search_form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.search_form input[type="text"] {
+    padding: 1.1rem;
+    font-size: 1rem;
+    border-radius: .5rem;
+    border: 1px solid #68a726;
+    background: #0d0f14;
+    color: #fff;
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+}
+
+.small_title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem; /* Incrementa ligeramente el tamaño */
+    margin-top: 1rem;
+    color: #ccc;
+    line-height: 1.5rem; /* Añade line-height para mejorar la legibilidad */
+    letter-spacing: 0.5px; /* Añade un poco de espaciado entre letras */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Añade una sombra sutil para mayor profundidad */
+    text-align: center;
+}
+
+/* Footer Styles */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+.bg-light {
+    background-color: #f5faff00 !important;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(90deg, #000000, #0f4249);
+    padding: 1rem 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-toggle svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        display: none;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+/* Main Section Styles */
+.main_one {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.title_main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.9rem;
+    line-height: 3rem;
+    letter-spacing: -.16px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 5px 6px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.title_main .highlight {
+    color: #0094A8;
+    font-weight: bold;
+}
+
+.subtitle_main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    color: #ccc;
+    line-height: 1.5rem;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Responsive Subtitle */
+@media (max-width: 768px) {
+    .subtitle_main {
+        font-size: 1rem;
+        line-height: 1.4rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .subtitle_main {
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+    }
+}
+
+/* Small Title Styles */
+.small_title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    margin-top: 1rem;
+    color: #ccc;
+    line-height: 1.5rem;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Search Form Styles */
+.search_form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.search_form input[type="text"] {
+    padding: 1.1rem;
+    font-size: 1rem;
+    border-radius: .5rem;
+    border: 1px solid #68a726;
+    background: #0d0f14;
+    color: #fff;
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+}
+
+/* Courses Section */
+.courses_section {
+    padding: 2rem 1rem;
+    background: linear-gradient(90deg, #000000, #0f4249);
+    text-align: center;
+}
+
+.section_title {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    color: #eeeeee;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 5px 6px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Courses Grid */
+.courses_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.course_card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.course_card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.course_info {
+    padding: 1rem;
+    text-align: left;
+}
+
+.course_title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.course_description {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.course_price {
+    font-size: 1rem;
+    color: #0094A8;
+    font-weight: bold;
+}
+
+.course_buy {
+    font-size: 1rem;
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.course_buy:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+
+
+/* Registro Page Styles */
+.register-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    margin: 2rem auto;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.register-container h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #0094A8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.register-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-container input[type="text"],
+.register-container input[type="password"],
+.register-container input[type="submit"] {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.register-container input[type="text"],
+.register-container input[type="password"] {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: background 0.3s ease;
+}
+
+.register-container input[type="text"]:focus,
+.register-container input[type="password"]:focus {
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+}
+
+.register-container input[type="submit"] {
+    background: #0094A8;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.register-container input[type="submit"]:hover {
+    background: #007bff;
+}
+
+.register-container input[type="submit"]:active {
+    background: #0056b3;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #0094A8; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto; /* Center the loader */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Login Page Styles */
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    margin: 2rem auto;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.login-container h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #0094A8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"],
+.login-container input[type="submit"] {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: background 0.3s ease;
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+}
+
+.login-container input[type="submit"] {
+    background: #0094A8;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-container input[type="submit"]:hover {
+    background: #007bff;
+}
+
+.login-container input[type="submit"]:active {
+    background: #0056b3;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
