@@ -1,11 +1,9 @@
-
 const express = require('express');
 const router = express.Router();
 
 // Importar el controlador de autenticación
 const authController = require('../controllers/authController');
 const registerController = require('../controllers/registerController');
-
 
 // Ruta para mostrar la página de inicio de sesión
 router.get('/login', authController.getLogin);

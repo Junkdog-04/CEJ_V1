@@ -2,19 +2,15 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8"> <!-- Configuración de la codificación de caracteres a UTF-8 -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Configuración para que la página sea responsiva -->
-    <title>Iniciar Sesión - Centro de Entrenamiento Jurídico - CEJ</title> <!-- Título de la página -->
+    <title>Iniciar Sesión - Centro de Entrenamiento Jurídico - CEJ</title>
     <meta name="description"
         content="Inicia sesión en el Centro de Entrenamiento Jurídico - CEJ. Accede a tus cursos y certificaciones.">
-    <!-- Descripción de la página -->
     <meta name="keywords"
         content="Iniciar Sesión, Centro de Entrenamiento Jurídico, CEJ, cursos de derecho, certificaciones jurídicas">
-    <!-- Palabras clave para SEO -->
-    <meta name="author" content="Centro de Entrenamiento Jurídico"> <!-- Autor de la página -->
+    <meta name="author" content="Centro de Entrenamiento Jurídico">
 
-    <!-- Open Graph meta tags para compartir en redes sociales -->
     <meta property="og:title" content="Iniciar Sesión - Centro de Entrenamiento Jurídico - CEJ">
     <meta property="og:description"
         content="Inicia sesión en el Centro de Entrenamiento Jurídico - CEJ. Accede a tus cursos y certificaciones.">
@@ -22,31 +18,23 @@
     <meta property="og:url" content="https://www.cej.com.co/auth/login">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Card meta tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Iniciar Sesión - Centro de Entrenamiento Jurídico - CEJ">
     <meta name="twitter:description"
         content="Inicia sesión en el Centro de Entrenamiento Jurídico - CEJ. Accede a tus cursos y certificaciones.">
     <meta name="twitter:image" content="/images/logo.png">
 
-    <!-- Favicon para la pestaña del navegador -->
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-
-    <!-- Bootstrap CSS para estilos y diseño responsivo -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css"> <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="/css/styles.css">
 
-    <!-- FontAwesome para iconos -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-    <!-- CSS para carrusel Slick -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 </head>
 
 <body>
-    <!-- Preloader de la página -->
     <div id="preloader">
         <div class="spinner">
             <img src="/images/logo.png" alt="Logo del Centro de Entrenamiento Jurídico" class="preloader-logo">
@@ -55,13 +43,13 @@
         </div>
     </div>
 
-    <!-- Incluir el header -->
     <%- include('../partials/header') %>
 
         <main>
             <div class="login-container">
                 <h1>Iniciar Sesión</h1>
-                <form id="login-form"> <!-- Formulario de inicio de sesión -->
+                <form id="login-form">
+                    <input type="text" name="name" placeholder="Nombre" required>
                     <input type="text" name="document" placeholder="Documento" required>
                     <input type="password" name="password" placeholder="Contraseña" required>
                     <input type="submit" value="Iniciar Sesión">
@@ -70,13 +58,10 @@
             </div>
         </main>
 
-        <!-- Incluir el footer -->
         <%- include('../partials/footer') %>
 
-            <!-- JavaScript para funcionalidades adicionales -->
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script type="text/javascript"
-                src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
             <script src="/js/scripts.js"></script>
             <script>
@@ -102,7 +87,8 @@
                         .then(data => {
                             if (data.success) {
                                 window.location.href = data.redirectUrl || '/dashboard';
-                            } else {
+                            }
+                            else {
                                 throw new Error(data.message || 'Error desconocido al iniciar sesión');
                             }
                         })
@@ -114,6 +100,7 @@
                         });
                 });
             </script>
+
 </body>
 
 </html>
